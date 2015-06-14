@@ -7,6 +7,7 @@ filetype off
 
 " ** NeoBundle
 " ** https://github.com/Shougo/neobundle.vim
+" ** 事前にNeoBundleのInstallが必要
 
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
@@ -29,49 +30,77 @@ NeoBundle 'scrooloose/nerdtree'
 " NormalMode時にctrl-Eでツリー表示
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
+" ** vim indent guides 
+" ** インデント可視化 
+" ** https://github.com/nathanaelkane/vim-indent-guides
+NeoBundle 'nathanaelkane/vim-indent-guides'
+" 起動時にオンにする
+let g:indent_guides_enable_on_vim_startup = 1
+" ガイドの横幅
+let g:indent_guides_guide_size = 1
+
+" ** Lightline 
+" ** 入力モードをわかりやすく
+" ** https://github.com/itchyny/lightline.vim
+NeoBundle 'itchyny/lightline.vim'
+
 " ** Plugin Name
 " ** Plugin Detail
 " ** plugin URL
 
-
 " -- end plugin settings --/
 
 call neobundle#end()
-
+NeoBundleCheck
 
 " -----------------------------------------------
-" Vim Options 
+" Color Scheme 
+" use https://github.com/w0ng/vim-hybrid
 " -----------------------------------------------
 
-" ** ソフトタブ
-
-" ** 行数表示
-set number
-
-" ** ステータスライン
-set laststatus=2
-set statusline=%F%l%c=
-
-
-syntax on
-"let g:hybrid_use_Xresources = 1
 let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid
 
-"SASSスニペット
-au BufRead,BufNewFile *.scss set filetype=sass
+" -----------------------------------------------
+" Vim Options
+" -----------------------------------------------
 
+" ** 自動シンタックス
+syntax on
+" ** 行数表示
+set number
+" ** 現在の行をステータスに出す
+set ruler
+" ** 現在の行をハイライトする
+set cursorline
+" ** ソフトタブ
+set expandtab
+" ** インデントの深さ
+set tabstop=4
+" ** 自動インデントの深さ
+set shiftwidth=4
+" ** 空白タブ文字等を可視化
+set list
+" ** listの表示文字設定
+set listchars=eol:`,tab:>-
+" ** インクリメンタルサーチ
+set incsearch
+" ** 検索結果のハイライト
+set hlsearch
+" ** 対応する括弧の表示
+set showmatch
+" ** 検索ループしない
+set nowrapscan
+" ** 検索で大文字小文字無視する
+set ignorecase
+" ** コマンドの記録数
+set history=500
+" ** ステータスを常に表示する
+set laststatus=2
+" ** エンコード
+set encoding=UTF-8
+" ** 入力中のコマンドを表示
+set showcmd
 
-"neobundle
-"set nocompatible
-
-"if has('vim_starting')
-"    set runtimepath+=~/.vim/bundle/neobundle.vim
-"    call neobundle#begin(expand('~/.vim/bundle/'))
-"    NeoBundleFetch 'Shougo/neobundle.vim'
-"    call neobundle#end()
-"endif
-
-"insert here your Neobundle plugins"
-
+" ファイルタイプ有効
 filetype plugin indent on
