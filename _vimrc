@@ -1,3 +1,7 @@
+" encode
+set encoding=UTF-8
+scriptencoding UTF-8
+
 " ファイルタイプ無効化
 filetype off
 
@@ -87,6 +91,11 @@ function! MyFugitive()
     return ''
 endfunction
 
+" ** lightline-hybrid 
+" ** lightline用のカラースキーム
+" ** https://github.com/cocopon/lightline-hybrid 
+NeoBundle 'cocopon/lightline-hybrid.vim'
+
 " ** vimdoc 
 " ** 日本語ヘルプ
 " ** https://github.com/vim-jp/vimdoc-ja 
@@ -99,10 +108,31 @@ NeoBundle 'mattn/emmet-vim'
 " keybind
 let g:user_emmet_leader_key='<Space>t'
 
+" ** vim hybrid 
+" ** 色(hybrid) 
+" ** https://github.com/w0ng/vim-hybrid 
+NeoBundle 'w0ng/vim-hybrid'
+
+" ** colorizer 
+" ** 色プレビュー君
+" ** https://github.com/lilydjwg/colorizer
+NeoBundle 'lilydjwg/colorizer'
+
+" ** unite.vim 
+" ** ゆないと。 
+" ** https://github.com/Shougo/unite.vim
+NeoBundle 'Shougo/unite.vim'
+" 起動時にinsert modeになるように
+let g:unite_enable_start_insert = 1
+
+" ** neomru.vim 
+" ** 最近使ったファイル
+" ** https://github.com/Shougo/neomru.vim
+NeoBundle 'Shougo/neomru.vim'
+
 " ** Plugin Name
 " ** Plugin Detail
 " ** plugin URL
-
 " -- end plugin settings --/
 
 call neobundle#end()
@@ -110,7 +140,6 @@ NeoBundleCheck
 
 " -----------------------------------------------
 " Color Scheme 
-" use https://github.com/w0ng/vim-hybrid
 " -----------------------------------------------
 
 let g:hybrid_use_iTerm_colors = 1
@@ -152,10 +181,10 @@ set ignorecase
 set history=500
 " ** ステータスを常に表示する
 set laststatus=2
-" ** エンコード
-set encoding=UTF-8
 " ** 入力中のコマンドを表示
 set showcmd
+" ** swpいらない
+set noswapfile
 
 " ファイルタイプ有効
 filetype plugin indent on
@@ -164,19 +193,46 @@ filetype plugin indent on
 " Mappings
 " -----------------------------------------------
 
+"  Leaderキーをデフォルトの\から<Space>に
+let g:mapleader = "\<Space>"
+
 " ** Normal Mode
 
+" 保存 
+nnoremap <Leader>w :w<CR>
 " vimrcの編集
 nnoremap <F5> :<C-u>tabedit $MYVIMRC<CR>
 " vimrcの反映
 nnoremap <F6> :<C-u>source $MYVIMRC<CR>
 " ツリー表示(pulgin)
-nnoremap <silent><Space>e :NERDTreeToggle<CR>
+nnoremap <Leader>e :NERDTreeToggle<CR>
 " MarkList
-nnoremap <Space>m :<C-u>marks<CR>
+nnoremap <Leader>m :<C-u>marks<CR>
+" Unite buffer(plugin)
+nnoremap <Leader>h :Unite file_mru<CR>
 
 " ** Normal Mode & Visual Mode
 
 " :を入力しやすく
 noremap ; :
 noremap : ;
+
+" ** Insert Mode
+
+" 括弧を打ったら一つ戻って括弧の中へ
+inoremap {} {}<Left>
+inoremap [] []<Left>
+inoremap () ()<Left>
+inoremap "" ""<Left>
+inoremap '' ''<Left>
+inoremap <> <><Left>
+" カリキュレータ起動
+inoremap <Space>= <C-r>=
+" 入力モードでもhjklで移動したい
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+" 入力モードで行頭行末へのジャンプ
+inoremap <C-e> <END>
+inoremap <C-a> <HOME>
