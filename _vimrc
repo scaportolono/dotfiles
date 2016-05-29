@@ -140,6 +140,11 @@ NeoBundle 'editorconfig/editorconfig-vim'
 " ** https://github.com/othree/html5.vim 
 NeoBundle 'othree/html5.vim'
 
+" ** fatih/vim-go
+" ** golang用プラグイン 
+" ** https://github.com/fatih/vim-go 
+NeoBundle 'fatih/vim-go'
+
 " ** Plugin Name
 " ** Plugin Detail
 " ** plugin URL

@@ -1,0 +1,30 @@
+# tmux config
+
+# prefix key
+#set -g prefix C-a
+
+# C-b解除
+#unbind C-b
+
+# ペイン分割
+bind | split-window -h
+bind - split-window -v
+
+# vim keybind
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# color
+setw -g default-terminal "screen-256color"
+setw -g status-bg green
+setw -g window-status-fg default 
+setw -g window-status-bg default
+setw -g window-status-attr dim 
+set -g pane-border-fg white
+set -g pane-active-border-fg green
+
+# status bar
+set -g status-utf8 on
+
