@@ -130,6 +130,16 @@ let g:unite_enable_start_insert = 1
 " ** https://github.com/Shougo/neomru.vim
 NeoBundle 'Shougo/neomru.vim'
 
+" ** EditorConfig 
+" ** 他環境間のフォーマット設定
+" ** https://github.com/editorconfig/editorconfig-vim
+NeoBundle 'editorconfig/editorconfig-vim'
+
+" ** othree/html5 
+" ** HTML5のindent 
+" ** https://github.com/othree/html5.vim 
+NeoBundle 'othree/html5.vim'
+
 " ** Plugin Name
 " ** Plugin Detail
 " ** plugin URL
@@ -144,6 +154,7 @@ NeoBundleCheck
 
 let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid
+set background=dark
 
 " -----------------------------------------------
 " Vim Options
@@ -190,6 +201,11 @@ set noswapfile
 filetype plugin indent on
 
 " -----------------------------------------------
+" filetype 
+" -----------------------------------------------
+au BufRead,BufNewFile *.tt set filetype=html
+
+" -----------------------------------------------
 " Mappings
 " -----------------------------------------------
 
@@ -227,7 +243,7 @@ inoremap "" ""<Left>
 inoremap '' ''<Left>
 inoremap <> <><Left>
 " カリキュレータ起動
-inoremap <Space>= <C-r>=
+inoremap <Space><Space>= <C-r>=
 " 入力モードでもhjklで移動したい
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
@@ -236,3 +252,4 @@ inoremap <C-l> <Right>
 " 入力モードで行頭行末へのジャンプ
 inoremap <C-e> <END>
 inoremap <C-a> <HOME>
+
