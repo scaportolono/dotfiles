@@ -44,6 +44,9 @@ bind r source-file ~/.tmux.conf
 # default tarminal 
 set -g default-terminal "screen-256color"
 
+# escape time
+set -g escape-time 0
+
 # display pane
 set -g display-panes-colour colour175
 set -g display-panes-active-colour colour161
