@@ -1,4 +1,6 @@
-# tmux config
+#  -----------------------------------------------
+#  prefix reset 
+#  -----------------------------------------------
 
 # prefix key
 #set -g prefix C-a
@@ -6,25 +8,78 @@
 # C-b解除
 #unbind C-b
 
+
+#  -----------------------------------------------
+#  key bind 
+#  -----------------------------------------------
+
 # ペイン分割
 bind | split-window -h
 bind - split-window -v
 
-# vim keybind
-bind h select-pane -L
-bind j select-pane -D
-bind k select-pane -U
-bind l select-pane -R
+# ペイン移動 
+bind -n M-h select-pane -L
+bind -n M-j select-pane -D
+bind -n M-k select-pane -U
+bind -n M-l select-pane -R
+bind -n M-o select-pane -t :.+
 
-# color
-setw -g default-terminal "screen-256color"
-setw -g status-bg green
-setw -g window-status-fg default 
-setw -g window-status-bg default
-setw -g window-status-attr dim 
-set -g pane-border-fg white
-set -g pane-active-border-fg green
+# ペインのリサイズ
+bind -n M-< resize-pane -L 5
+bind -n M-> resize-pane -R 5
+bind -n M-- resize-pane -D 5
+bind -n M-+ resize-pane -U 5
 
-# status bar
+# アクティブペインの最大化
+bind -n M-z resize-pane -Z
+
+# confの反映 
+bind r source-file ~/.tmux.conf
+
+
+#  -----------------------------------------------
+#  set options 
+#  -----------------------------------------------
+
+# default tarminal 
+set -g default-terminal "screen-256color"
+
+# display pane
+set -g display-panes-colour colour175
+set -g display-panes-active-colour colour161
+set -g display-panes-time  2000
+
+# status line 
 set -g status-utf8 on
+set -g status-fg colour252
+set -g status-bg colour238
+
+# status left
+set -g status-left-length 20
+set -g status-left "Session: #S "
+
+# status right
+set -g status-right-length 60
+set -g status-right "#H | %m/%d %H:%M:%S"
+
+# message line
+set -g message-fg colour236
+set -g message-bg colour215
+
+
+#  -----------------------------------------------
+#  set window options 
+#  -----------------------------------------------
+
+# border stype
+setw -g pane-border-fg colour238
+setw -g pane-active-border-fg colour161
+
+# window status
+setw -g window-status-format " #I: #W "
+setw -g window-status-fg colour252 
+setw -g window-status-bg colour238 
+setw -g window-status-current-format " #I: #W* "
+setw -g window-status-current-fg colour238
+setw -g window-status-current-bg colour154
 
