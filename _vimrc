@@ -145,6 +145,17 @@ NeoBundle 'othree/html5.vim'
 " ** https://github.com/fatih/vim-go 
 NeoBundle 'fatih/vim-go'
 
+" ** kannokanno/previm 
+" ** Markdown preview 
+" ** https://github.com/kannokanno/previm
+NeoBundle 'kazuph/previm', 'feature/add-plantuml-plugin'
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+
+" ** aklt/plantuml-syntax
+" ** plantuml syntax 
+" ** https://github.com/aklt/plantuml-syntax
+NeoBundle 'aklt/plantuml-syntax'
+
 " ** Plugin Name
 " ** Plugin Detail
 " ** plugin URL
