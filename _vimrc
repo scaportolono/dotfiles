@@ -156,6 +156,20 @@ let g:previm_open_cmd = 'open -a Google\ Chrome'
 " ** https://github.com/aklt/plantuml-syntax
 NeoBundle 'aklt/plantuml-syntax'
 
+" ** tsuyoshiwada/slack-memo-vim 
+" ** memo to slack 
+" ** https://github.com/tsuyoshiwada/slack-memo-vim 
+NeoBundle 'tsuyoshiwada/slack-memo-vim', {'depends': 'mattn/webapi-vim'}
+" require setting 'g:slack_memo_token' and 'g:slack_memo_channel'
+if filereadable(expand('~/.vimrc.local'))
+    source ~/.vimrc.local
+endif
+
+" ** mattn/webapi-vim 
+" ** vim interface to Web API  
+" ** https://github.com/mattn/webapi-vim 
+NeoBundle 'mattn/webapi-vim'
+
 " ** Plugin Name
 " ** Plugin Detail
 " ** plugin URL
