@@ -144,6 +144,13 @@ NeoBundle 'othree/html5.vim'
 " ** golang用プラグイン 
 " ** https://github.com/fatih/vim-go 
 NeoBundle 'fatih/vim-go'
+let g:go_def_reuse_buffer = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_build_constraints = 1
 
 " ** kannokanno/previm 
 " ** Markdown preview 
@@ -226,6 +233,8 @@ set laststatus=2
 set showcmd
 " ** swpいらない
 set noswapfile
+" ** backspace(delete)有効
+set backspace=2
 
 " ファイルタイプ有効
 filetype plugin indent on
@@ -256,6 +265,9 @@ nnoremap <Leader>e :NERDTreeToggle<CR>
 nnoremap <Leader>m :<C-u>marks<CR>
 " Unite buffer(plugin)
 nnoremap <Leader>h :Unite file_mru<CR>
+
+" godef newtab(plugin)
+nmap <Leader>gd <Plug>(go-def-tab)
 
 " ** Normal Mode & Visual Mode
 
